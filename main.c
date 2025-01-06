@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
         switch (choice) {
             case 1:
                 printf("\nYou chose Admin.\n");
-               loginAdmin(email, password);
+                loginAdmin(email, password);
                 menuAdmin();
                 break;
             case 2:
