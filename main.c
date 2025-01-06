@@ -11,7 +11,6 @@ int main(int argc, char *argv[]) {
     char password[100];
     Student students[1000];
     Teacher teacher[1000];
-//    Classroom classroom[1000];
     while(1){
         displayMenu();
         if (scanf("%d", &choice) != 1) {
@@ -22,7 +21,7 @@ int main(int argc, char *argv[]) {
         switch (choice) {
             case 1:
                 printf("\nYou chose Admin.\n");
-//                loginAdmin(email, password);
+               loginAdmin(email, password);
                 menuAdmin();
                 break;
             case 2:
