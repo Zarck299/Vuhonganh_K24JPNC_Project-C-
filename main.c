@@ -11,6 +11,7 @@ int main(int argc, char *argv[]) {
     char password[100];
     Student students[1000];
     Teacher teacher[1000];
+    loadDataFromFile(students,);
     while(1){
         displayMenu();
         if (scanf("%d", &choice) != 1) {
