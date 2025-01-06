@@ -4,7 +4,7 @@
 #include <string.h>
 //logic ham functions.h
 void displayMenu(){
-	system("cls");
+    system("cls");
     printf("\t***Student Management System Using C***\n");
     printf("CHOOSE YOUR ROLE\n");
     printf("=========================\n");
@@ -16,55 +16,32 @@ void displayMenu(){
     printf("\nEnter The Choice: ");
 }
 // Menu Admin
-void menuAdmin(){
-	system("cls");
-	int choiceAdmin;
-	printf("\n***Student Management System Using C***\n");
-	printf("		Menu\n");
-	printf("=================================\n");
-	printf("[1]: Students management.\n");
-	printf("[2]: ClassRooms managemment.\n");
-	printf("[3]: Teacher management.\n");
-	printf("[4]: User Guideline.\n");
-	printf("[5]: About Us.\n");
-	printf("[0]: Menu \n");
-	printf("Enter The Choice: ");
-	scanf("%d", &choiceAdmin);
-	getchar();
-}
-// Menu chon che do
-void chooseYourmode(Student students[],int *choiceAdmin,int *count,int currentLength){
-	system("cls");
-	do{
-		menuStudents(students, count);
-		scanf("%d",&choiceAdmin);
-		getchar();
-		switch(*choiceAdmin){
-			case 1:
-				displayStudents(students,count);
-				break;
-			case 2:	
-				addStudents(students,count);
-				break;
-			case 3:
-				searchStudentByName(students,count);
-				break;
-			case 4: 
-				editStudents(students,&currentLength);
-				break;
-			case 5: 
-				deleteStudents(students,&currentLength); 
-				break;
-			case 6:
-				sortStudentsByName(students,&currentLength);
-				break;
-			case 0:
-				break;
-			default:
-				printf("Lua chon khong hop le. Vui long chon lai\n");
-				break;
-		}	
-	}while(*choiceAdmin!=0);
+void menuAdmin(Student students[], int *choiceAdmin, int *Length, Teacher teacher[], int *count) {
+    system("cls");
+    do {
+        printf("\n*** Admin Management Menu ***\n");
+        printf("[1]: Students management.\n");
+        printf("[2]: Teacher management.\n");
+        printf("[0]: Exit Admin Menu.\n");
+        printf("Enter your choice: ");
+        scanf("%d", choiceAdmin);
+        getchar();
+        switch (*choiceAdmin) {
+            case 1:
+                printf("\n*** Students Management ***\n");
+                menuStudents(students, count);
+                break;
+            case 2:
+                printf("\n*** Teachers Management ***\n");
+                menuTeacher(teacher, count);
+                break;
+            case 0:
+                printf("\nExiting Admin Menu...\n");
+                break;
+            default:
+                printf("\nInvalid choice! Please try again.\n");
+        }
+    } while (*choiceAdmin != 0);
 }
 // Ham in ra danh sach sinh vien
 void displayStudents(Student students[], int *count) { 
@@ -336,7 +313,6 @@ void searchStudentByName(Student students[], int *currentLength) {
         printf("Emty list.\n");
         return;
     }
-    printf("check %d",*currentLength);
     char searchName[50];
     getchar();
     printf("Enter information: ");
